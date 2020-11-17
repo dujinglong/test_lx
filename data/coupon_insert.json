@@ -1,0 +1,8 @@
+{
+  "url":"https://rms.api.aixiangdao.top/activity/activity/coupon/update",
+  "headers":{"Content-Type": "application/json; charset=utf-8", "branch": "develop",
+    "userToken": "2f72a0394-27ba-41ec-98fe-da212ba7d6a7"},
+  "data" : {"id": 34, "status": 1},
+  "expect_result": 1,
+  "status_code": 200
+}

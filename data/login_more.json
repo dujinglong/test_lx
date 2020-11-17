@@ -1,0 +1,14 @@
+{"login_001": {
+                "url": "https://rms.api.aixiangdao.top/rms/login",
+                "mobile": "18321252140",
+                "code": "968307",
+                "expect_result": "name",
+                "status_code": 200},
+  "login_002": {
+                "url": "https://rms.api.aixiangdao.top/rms/login",
+                "mobile": "18321252140",
+                "code": "968307",
+                "expect_result": {"errorCode": "EntityNotExist.VerifyCode.Expired"},
+                "status_code": 404
+  }
+}

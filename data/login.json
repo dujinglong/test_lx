@@ -1,0 +1,7 @@
+{
+  "url": "https://rms.api.aixiangdao.top/rms/login",
+  "mobile" :"18321252140",
+  "code" : "006915",
+  "expect_result": "name",
+  "status_code" : 200
+}

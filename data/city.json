@@ -1,0 +1,7 @@
+{
+  "url":"https://rms.api.aixiangdao.top/basic/queryCityName?cityId=-1",
+  "headers":{"Content-Type": "application/json; charset=utf-8", "branch": "develop",
+        "userToken": "2f72a0394-27ba-41ec-98fe-da212ba7d6a7"},
+  "expect_result": "深圳市",
+  "status_code" : 200
+}

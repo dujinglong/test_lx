@@ -61,7 +61,7 @@ if __name__ == '__main__':
     # print(arrs)
 
     # 更新活动信息
-    data = ReadJson("coupon_insert.json").read_json()
+    data = ReadJson("coupon.json").read_json()
     # 新建空列表，添加读取json数据
     arrs = []
     arrs.append((data.get("url"),

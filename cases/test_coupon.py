@@ -5,9 +5,10 @@ from tools.read_json import ReadJson
 from parameterized import parameterized
 import urllib3
 
+
 def data():
     # 更新活动信息
-    data = ReadJson("coupon_insert.json").read_json()
+    data = ReadJson("coupon.json").read_json()
     # 新建空列表，添加读取json数据
     arrs = []
     arrs.append((data.get("url"),
@@ -20,9 +21,10 @@ def data():
 
 # 创建上架活动类
 class Testcouponinsert(unittest.TestCase):
+    """测试活动管理"""
     @parameterized.expand(data())
     # 定义测试方法
-    def test_coupon_insert(self, url, headers, data, expect_result, status_code):
+    def test_coupon(self, url, headers, data, expect_result, status_code):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         # 暂时存放数据
         # urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)

@@ -20,7 +20,8 @@ def get_data():
 
 # 新建测试类 继承
 class TestCity(unittest.TestCase):
-    @parameterized.expand(get_data())   #
+    """用例说明：测试城市"""
+    @parameterized.expand(get_data())
     # 新建测试方法
     def test_city(self, url, headers, expect_result, status_code):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)  # 禁止安全请求警告

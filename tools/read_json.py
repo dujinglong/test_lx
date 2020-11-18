@@ -51,22 +51,22 @@ if __name__ == '__main__':
     # print(arrs)
 
     # 获取频道规则
-    # data = ReadJson("city.json").read_json()
-    # # 新建空列表，添加读取json数据
-    # arrs = []
-    # arrs.append((data.get("url"),
-    #              data.get("headers"),
-    #              data.get("expect_result"),
-    #              data.get("status_code")))
-    # print(arrs)
-
-    # 更新活动信息
-    data = ReadJson("coupon.json").read_json()
+    data = ReadJson("city.json").read_json()
     # 新建空列表，添加读取json数据
     arrs = []
     arrs.append((data.get("url"),
                  data.get("headers"),
-                 data.get("data"),
                  data.get("expect_result"),
                  data.get("status_code")))
     print(arrs)
+
+    # # 更新活动信息
+    # data = ReadJson("coupon.json").read_json()
+    # # 新建空列表，添加读取json数据
+    # arrs = []
+    # arrs.append((data.get("url"),
+    #              data.get("headers"),
+    #              data.get("data"),
+    #              data.get("expect_result"),
+    #              data.get("status_code")))
+    # print(arrs)

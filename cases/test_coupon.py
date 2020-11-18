@@ -20,7 +20,7 @@ def data():
 
 
 # 创建上架活动类
-class Testcouponinsert(unittest.TestCase):
+class Testcoupon(unittest.TestCase):
     """测试活动管理"""
     @parameterized.expand(data())
     # 定义测试方法

@@ -1,0 +1,320 @@
+# import time
+# from collections import Iterable
+# from collections import Iterator
+# 输入时分秒 23:23:23
+# timeStr = input("请输入时间：")
+# timeList = timeStr.split(":")  # 按照符号切割
+# h = int(timeList[0])
+# m = int(timeList[1])
+# s = int(timeList[2])
+# s += 1
+# if s == 60:
+#     m += 1
+#     s = 0
+#     if m == 60:
+#         h += 1
+#         m = 0
+#         if h == 24:
+#             h = 0
+#
+# print("%.2d:%.2d:%.2d" % (h, m, s))
+
+# musicLrcList = """[00:03.50]传奇
+# [00:19.10]作词：刘兵 作曲：李健
+# [00:20.60]演唱：王菲
+# [00:26.60]
+# [04:40.75][02:39.90][00:36.25]只是因为在人群中多看了你一眼
+# [04:49.00]
+# [02:47.44][00:43.69]再也没能忘掉你容颜
+# [02:54.83][00:51.24]梦想着偶然能有一天再相见
+# [03:02.32][00:58.75]从此我开始孤单思念
+# [03:08.15][01:04.30]
+# [03:09.35][01:05.50]想你时你在天边
+# [03:16.90][01:13.13]想你时你在眼前
+# [03:24.42][01:20.92]想你时你在脑海
+# [03:31.85][01:28.44]想你时你在心田
+# [03:38.67][01:35.05]
+# [04:09.96][03:39.87][01:36.25]宁愿相信我们前世有约
+# [04:16.37][03:46.38][01:42.47]今生的爱情故事 不会再改变
+# [04:24.82][03:54.83][01:51.18]宁愿用这一生等你发现
+# [04:31.38][04:01.40][01:57.43]我一直在你身旁 从未走远
+# [04:39.55][04:09.00][02:07.85]"""
+# lrcDice = {}
+# musicLrcList = musicLrcList.splitlines()
+# gettime = 1
+# # print(musicLrcList)
+# for lrcLine in musicLrcList:
+#     # runCount = lrcLine.count(":")
+#     lrcLineList = lrcLine.split("]")  # 按照]切割
+#     for index in range(len(lrcLineList)-1):  # 拿到
+#         timeStr = lrcLineList[index][1:]
+#         timeList = timeStr.split(":")
+#         # print(timeList)
+#         times = float(timeList[0]) * 60 + float(timeList[1])
+#         # print(time)
+#         lrcDice[times] = lrcLineList[-1]
+# # print(lrcDice)
+#
+# allTimeList = []
+# for t in lrcDice:
+#     allTimeList.append(t)
+# allTimeList.sort()
+# print(allTimeList)
+# """while 1:
+#     getTime = float(input("请输入一个时间:"))
+#
+#     for n in range(len(allTimeList)):
+#         tempTime = allTimeList[n]
+#         if getTime < tempTime:
+#             break
+#
+#         if n == 0:
+#             print("时间太小")
+#         else:
+#             print(lrcDice[allTimeList[n - 1]])
+# """
+# getTime = 0
+# while 1:
+#     for n in range(len(allTimeList)):
+#         tempTime = allTimeList[n]
+#         if getTime < tempTime:
+#             break
+#
+#     lrc = lrcDice.get(allTimeList[n - 1])
+#     if lrc == None:
+#         pass
+#     else:
+#         print(lrc)
+#     time.sleep(1)
+#     getTime += 1
+
+"""
+set:类似dict,是一组key的集合，不存储value
+本质：无序和无重复元素的集合
+"""
+
+# 创建 set需要一个list或者tuple或者dict作为输入集合
+# s1 = set([1, 2, 3, 4, 5, 3, 4, 5])
+# print(s1)
+#
+# s2 = set((1, 2, 3, 3, 2, 1))
+# print(s2)
+#
+# s3 = set({1: "good", 2: "nice"})
+# print(s3)
+#
+# s4 = set([1, 2, 3, 4, 5])
+# s4.add(6)
+# s4.add(3) # 可以添加重复的，但是不会有效果
+# # s4.add([7, 8, 9]) # set元素不能是列表，因为列表是可变的
+# s4.add((7, 8, 9))
+# # s4.add({1: "a"})  # set元素不能是字典，因为字典是可变的
+# print(s4)
+#
+# # 出入整个list、update、字符串、打碎插入
+# s5 = set([1, 2, 3, 4, 5])
+# s5.update([6, 7, 8])
+# s5.update((9, 10))
+# s5.update("sunck")
+# print(s5)
+# # 删除
+# s6 = set([1, 2, 3, 4, 5])
+# s6.remove(3)
+# print(s6)
+
+# 遍历
+# s7 = set([1, 2, 3, 4, 5])
+# for i in s7:
+#     print(i)
+# set 没有索引
+# print(s7[3])
+# for index, data in enumerate(s7):
+#     print(index, data)
+
+
+# 交集
+# s8 = set([1, 2, 3])
+# s9 = set([2, 3, 4])
+# a1 = s8 & s9
+# print(a1)
+# print(type(a1))
+#
+# # 并集
+# a2 = s8 | s9
+# print(a2)
+# print(type(a2))
+
+
+# 类型转换 a  list ->set
+# list = [1, 2, 3, 4, 5]
+# sets = set(list)
+# print(sets)
+#
+#
+# #  B tuple->set
+# tuples = (1, 2, 3, 4)
+# set1 = tuple(tuples)
+# print(set1)
+
+# c set ->lsit
+# set4 = {2, 3, 4}
+# list1 = list(set4)
+# print(list1)
+
+# d set ->tuple
+
+# set5 = {2, 3, 4}
+# # list2 = tuple(set4)
+# # print(list2)
+
+
+# list去重
+# a = [1, 2, 3, 4, 3, 4, 5, 6]
+# s = list(set(a))
+# print(s)
+
+# 迭代器
+"""
+可迭代对象：可以直接适用于for循环的对象统称为迭代对象
+（Iterable）,可以用isinstance()去判读一个对象是否是可Iterable对象
+
+可以直接作用于for的数据类型一般分两种
+1、集合数据类型：如 list、tuple、 dict、set、string
+2、是gengerator,包括生成器和带yield的gengerator  function
+
+"""
+
+# print(isinstance([], Iterable))
+# print(isinstance((), Iterable))
+# print(isinstance({}, Iterable))
+# print(isinstance("", Iterable))
+# print(isinstance((x for x in range(10)), Iterable))
+# print(isinstance(1, Iterable))
+
+'''
+迭代器：不但可以用于for循环，还可被next()函数不断调用并返回下一个值，直到最后抛出StopInteration错误表示无法返回下一个值
+
+ 可以被next()函数调用不断返回下一个值的对象称为迭代器
+（Iterator）
+可以使用isinstance()函数判断一个对象是否是Iterator对象
+
+
+'''
+#
+# print(isinstance([], Iterator))
+# print(isinstance((), Iterator))
+# print(isinstance({}, Iterator))
+# print(isinstance("", Iterator))
+# print(isinstance((x for x in range(10)), Iterator))
+#
+# l = (x for x in [23, 45, 670, 45])
+# print(next(l))
+# print(next(l))
+# print(next(l))
+# print(next(l))
+
+
+# 转成Iterator对象
+# # a = iter([1, 2, 3])
+# # print(next(a))
+# print(next(a))
+# print(isinstance(iter([]), Iterator))
+# print(isinstance(iter(()), Iterator))
+# print(isinstance(iter({}), Iterator))
+# print(isinstance(iter(''), Iterator))
+
+
+# 输入后必须输入end才打印
+# endstr = "end"
+# str = ""
+# for line in iter(input, endsrt):
+#     str += line + "\n"
+# print(str)
+
+"""
+认识函数：在一个完整的项目中，某些功能会反复的使用。那么会将功能封装成函数，当我们要使用功能的时候直接调用函数季卡
+本质：函数就是对功能的封装
+优点：
+1、简化代码结构，增加了代码的复用度（重复使用的程度）
+2、如果想修改某些功能或者修改某个bug,还需要修改对应的函数即可
+
+"""
+
+"""
+（参数1， 参数2， ‘’‘’‘’， 参数n）
+定义函数：
+格式：
+def 函数名（参数列表）
+    语句
+    return 表达式
+def:函数代码块以def关键字开始
+函数名：遵循标识符规则
+():是参数列表的开始和结束
+冒号：函数内容（封装的功能）以冒号缩进
+语句：函数封装的功能
+return ：一般用于结束函数，并返回信息给函数的调用者。
+表达式：即为返回给函数的调用者信息
+注意：最后的return 表达式。可以不写，相当于return None
+参数列表（参数1， 参数2， ‘’‘’‘’， 参数n）：任何传入函数的参数和变量必须放在圆括号之间，用逗号分隔。函数从函数的调用者哪里获取的信息
+"""
+
+"""
+函数的调用
+格式：函数名（参数列表）
+函数名：是要使用的功能的函数名字
+参数列表：函数的调用者给函数传递的信息,如果没有参数，小括号也不能省略
+
+函数调用的本质：实参给形参赋值的过程
+
+
+"""
+# 凯 = "帅"
+# print(凯)
+
+# 定义了一个无参无返回的函数
+
+#
+# def myPrint():
+#     print("sunck is a very good man!")
+#     print("sunck is a nice man!")
+#     print("sunck is a handsome man!")
+#
+#
+# myPrint()
+# myPrint()
+# myPrint()
+
+
+"""
+函数的参数
+
+"""
+
+
+# 需求：编写一个函数，给函数一个字符串和一个年龄，在函数内部打印出来
+
+# 形参（形式参数）：定义函数时小括号中的变量，本质是变量
+# 参数必须按顺序传递，个数目前要对应
+# def myPrint(str, age,hoby):
+#     print(str, age)
+
+def myPrint(str, age):
+    print(str, age)
+
+
+# 实参（实际参数）：调用函数时传递数据，本质是值
+myPrint("sunck is a very good man!", 18)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -298,23 +298,144 @@ return ：一般用于结束函数，并返回信息给函数的调用者。
 # def myPrint(str, age,hoby):
 #     print(str, age)
 
-def myPrint(str, age):
-    print(str, age)
+# def myPrint(str, age):
+#     print(str, age)
+#
+#
+# # 实参（实际参数）：调用函数时传递数据，本质是值
+# myPrint("sunck is a very good man!", 18)
 
 
-# 实参（实际参数）：调用函数时传递数据，本质是值
-myPrint("sunck is a very good man!", 18)
+# 编写函数，实现功能，给函数两个数，返回这2个数的和
+# def mySun(num1, num2):
+#     # 将结果返回给函数的调用者
+#     return num1 + num2
+#     # 执行完return语句，该函数就结束了，return后面的代码不会执行
+#     print("**********")
+#
+#
+# res = mySun(1, 2)
+# print(res)
 
 
 
+# 传递参数
+
+"""
+值传递：传递不可变类型
+string、tupel、number
+"""
+# def fun1(num):
+#     num = 10
+#
+# temp = 20
+# fun1(temp) # num = temp
+# print(temp)
+
+"""
+引用传递：传递可变类型
+list、 dict、set是可变的
+"""
+
+#
+# def func2(lis):
+#     lis[0] = 100
+# li = [1, 2, 3, 4,5]
+# func2(li)
+# print(li)
+#
+# a = 10
+# b = 10
+# print(id(a), id(b))
+#
+# c = 20
+# d = 30
+# print(id(c), id(d))
+# d = c
+# print(id(c), id(d))
 
 
 
+"""
+概念：允许函数调用时参数的顺序与定义时不一致
+
+"""
+
+#
+# def myPrint(str, age):
+#     print(str, age)
+#
+#
+# # 使用关键字参数
+# myPrint(age=18, str="sunck is a good man")
 
 
 
+"""
+概念：调用函数时，如果没有传递参数，则使用默认参数
+
+"""
 
 
+# 以后要用默认参数，最好将默认参数放到最新
+# def myPrint(str, age=18):
+#     print(str, age)
+#
+#
+# # 使用关键字参数
+# myPrint("kaige good")
 
 
+"""
+概念：能处理比定义时更多的参数
+"""
+# 加了星号（*）的变量存放所有未命名的变量参数，如果在函数调用时没有指定参数，它就是一个空元组
+
+
+# def func(name, *arr):
+#     print(name)
+#
+#     for x in arr:
+#         print(x)
+#
+#
+# func("sunck", "good", "nice", "handsom")
+
+# def mySun(*l):
+#     sum = 0
+#     for i in l:
+#         sum += i
+#     return sum
+#
+#
+# print(mySun(1, 2, 3, 4, 5, 6))
+
+# **代表键值对的参数字典，和*所代表的意义类似
+# def func2(**kwargs):
+#     print(kwargs)
+#     print(type(kwargs))
+#
+#
+# func2(x=1, y=2, z=3)  # 打印出字典： {'x': 1, 'y': 2, 'z': 3}
+# # func2(1, 2, 3)  # 报错
+#
+# 不定长函数
+# def func3(*args, **kwargs):
+#     pass  # 代表一个空语句
+
+
+"""
+匿名函数：不使用def这样的语句定义函数，使用lambda来创建匿名函数
+特点：
+1、lambda 只是一个表达式，函数体比def简单
+2、lambda 的主体是一个表达式，而不是代码块，仅仅只能在lambda表达式中封装简单的逻辑
+3、lambda函数有自已的命名空间，切不能访问自由参数列表之外的或全局命名空间的参数
+4、虽然lambda 是一个表达式且看起来只能写一行，与c和c++内联函数不同
+
+格式：
+lambda 参数1， 参数2，....,参数n：expression
+"""
+#
+# sum = lambda num1, num2: num1+num2
+# print(sum(1, 2))
 

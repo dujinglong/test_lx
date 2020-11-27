@@ -85,15 +85,15 @@ import functools
 全局作用域
 
 """
-try:
-    print(3/1)
-    # print(num)
-except NameError as e:
-    print("没有该变量")
-except ZeroDivisionError as e:
-    print("除数为0了")
-else:
-    print("代码没有问题")
+# try:
+#     print(3/1)
+#     # print(num)
+# except NameError as e:
+#     print("没有该变量")
+# except ZeroDivisionError as e:
+#     print("除数为0了")
+# else:
+#     print("代码没有问题")
 # print("*********")
 # 需求：当程序预定问题不让程序结束，而越过错误向下执行
 
@@ -124,15 +124,81 @@ else:
 
 # 使用expect而不是使用任何的错误类型
 
-try:
-    # print(4/0)
-    print(num)
-except:
-    print("程序出现了异常")
+# try:
+#     # print(4/0)
+#     print(num)
+# except:
+#     print("程序出现了异常")
 
 #  使用tryexcept带着多种异常错误处理
 
+# try:
+#     print(4/0)
+# except (NameError, ZeroDivisionError):
+#     print("出现了NameError或ZeroDivisionError")
+
+# 特殊
+# 1、错误其实是class(类),所有的错误都继承BaseException，所以在捕获的时候，它捕获了该类型错误，还把子类一网打尽
+# try:
+#     print(5/0)
+# except BaseException as e:
+#     print("异常1")
+# except ZeroDivisionError as e:
+#     print("异常2")
+
+
+# 跨越多层调用,main调用了func2,func2调用了func1，func1出现了错误
+# def func1(num):
+#     print(1 / num)
+#
+#
+# def func2(num):
+#     func1(num)
+#
+#
+# def main():
+#     func2(0)
+#
+#
+# try:
+#     main()
+# except ZeroDivisionError as e:
+#     print("***")
+
+"""
+try...except...finally
+格式：
+格式：
 try:
-    print(4/0)
-except (NameError, ZeroDivisionError):
-    print("出现了NameError或ZeroDivisionError")
+    语句t
+expect 错误码 as e:
+    语句1
+
+expect 错误码 as e:
+    语句2
+...
+expect 错误码 as e:
+    语句n
+finally:
+    语句f
+作用：语句t无论是否有错误都执行最后的语句f
+"""
+# try:
+#     print(5/0)
+# # except BaseException as e:
+# #     print("为0了")
+# finally:
+#     print("必须执行我")
+
+'''
+assert:可作为调试信息
+'''
+
+
+def func(num, div):
+    assert(div != 0), "div不能为0"
+    return num/div
+
+
+print(func(10, 0))  # AssertionError: div不能为0
+

@@ -439,3 +439,120 @@ lambda 参数1， 参数2，....,参数n：expression
 # sum = lambda num1, num2: num1+num2
 # print(sum(1, 2))
 
+# 什么是函数：函数就是一段事先组织好的，它具有可重复性，封装好，用来实现某个相关联功能的代码段，函数能提高应用的模块性，
+# 和代码的重复利用率。
+
+# 未携带函数格式
+
+
+def name():  # name
+    print('这是一个函数')
+    return name
+
+
+name()
+
+# 携带从参数函数格式
+
+
+def name(name):
+    print('这是函数名', name)
+    return name
+
+
+name('name')
+'''
+通常来说函数必须要遵循以下几点：
+
+函数代码块以 def 关键词开头，后接函数标识符名称和圆括号()。
+圆括号之间可以用于定义参数。
+函数内容以冒号起始，并且缩进。
+return 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。
+'''
+# 可变与不可变
+
+# 不可变参数
+def name(a):
+    a = 20
+    print(a)
+
+
+b = 10
+name(b)  # 20
+print(b)  # 10
+
+# 可变参数
+
+
+def changme(mylist):
+    mylist.append([1, 2, 3, 4])
+    print("函数内取值", mylist)  # [10, 20, 30, [1, 2, 3, 4]]
+    return
+
+
+# 调用函数
+mylist = [10, 20, 30]
+changme(mylist)
+'''
+不可变：整数、字符串、元组
+可变参数：字典，列表
+'''
+
+# 全局变量和局部变量：定义在函数内部的变量拥有一个局部作用域，定义在函数外的拥有全局作用域，局部变量只能在其被声明的函数内部访问，
+# 而全局变量可以在整个程序范围内访问。调用函数时，所有在函数内声明的变量名称都将被加入到作用域中
+name = 'jinglong'
+
+
+def name_01(name):
+    print('现在我的名字是：', name)  # jinglong
+    name = 'test'
+    print('现在我的名字是：', name)  # test
+
+
+name_01(name)
+print('外面我的名字是：', name)  # jinglong
+
+# 函数之前的调用
+
+
+def jiafa(a, b):
+    # 加法
+    c = a + b
+    return c
+
+
+def jianfa(c):
+    d = 2
+    s = c - 2
+    print(s)
+
+
+c = jiafa(2, 5)  # 调用函数加法
+jianfa(c)  # 调用函数减法
+
+
+# 非固定函数：若你的函数在定义时不确定用户想传入多少个参数，就可以使用非固定参数，引入*args,**kwargs
+def name(name, *args):
+    print(name, args)  # Jinglong ('test', 123)
+
+
+name('Jinglong', 'test', 123)  # Jinglong ('test', 123) 这个时候会发现*args 传入的内容会变成一个元祖
+
+
+def name(name, **kwargs):
+    print(name, kwargs)
+
+
+name('jinlgong', it='test', age=32)  # jinlgong {'it': 'test', 'age': 32} 这个时候会发现**kwargs传入的内容会变成一个字典
+
+# 递归：函数之间可以进行调用，那么函数本身也可以进行调用，这种函数我们叫做递归
+
+
+def calc(n):
+    print(n)
+    if int(n/2) == 0:
+        return n
+    return calc(int(n/2))
+
+
+calc(10)  # 10  5 2 1
